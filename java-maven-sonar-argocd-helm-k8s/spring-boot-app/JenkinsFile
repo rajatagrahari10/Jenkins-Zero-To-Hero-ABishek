@@ -8,11 +8,15 @@ pipeline {
         //git branch: 'main', url: 'https://github.com/rajatagrahari10/Jenkins-Zero-To-Hero-ABishek.git'
       }
     }
+    tools {
+        maven 'Maven 3.9.2'
+        jdk 'Java 20.0.1'
+    }
     stage('Build and Test') {
       steps {
         
         // build the project and create a JAR file
-        sh 'mvn clean package'
+        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
       }
     }
     stage('Static Code Analysis') {
