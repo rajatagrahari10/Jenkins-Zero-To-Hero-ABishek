@@ -1,16 +1,15 @@
 pipeline {
   agent any
-  
+  tools {
+        maven 'Maven 3.9.2'
+        jdk 'Java 20.0.1'
+    }
   stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
         //git branch: 'main', url: 'https://github.com/rajatagrahari10/Jenkins-Zero-To-Hero-ABishek.git'
       }
-    }
-    tools {
-        maven 'Maven 3.9.2'
-        jdk 'Java 20.0.1'
     }
     stage('Build and Test') {
       steps {
